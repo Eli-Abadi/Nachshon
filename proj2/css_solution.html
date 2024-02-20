@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<style>
+				#spinner {
+				  animation-name: spinner, depth;
+				  animation-timing-function: linear;
+				  animation-iteration-count: infinite;
+				  animation-duration: 7s;
+				  transform-style: preserve-3d;
+				  text-align:center;
+				}
+				@keyframes spinner {
+				  from {
+					transform: rotateY(0deg);
+				  }
+				  to {
+					transform: rotateY(-360deg);
+				  }
+				}
+				
+				@keyframes depth {
+				  0% { text-shadow: 0 0 black; }
+				  25% { text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
+				  50% { text-shadow: 0 0 black; }
+				  75% { text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black, -5px 0 black; }
+				  100% { text-shadow: 0 0 black; }
+				}
+			</style>
+		</head>
+	
+		<body>
+			<div style="background-color:powderblue;", id="spinner">
+			<hr>
+				<p>----------------------Stop, I'm getting dizzy!----------------------</p>
+				<hr>
+			</div>
+			
+			<div style="background-color:powderblue;">
+				<p>Stop, I'm getting dizzy!</p>
+			</div>
+		</body>
+	</html>
