@@ -2,8 +2,30 @@
 	<html>
 		<head>
 			<style>
+			
+				body{
+					background-image: url(static/background-image-test.jpg);
+					background-repeat: no-repeat;
+					display: grid;
+				}
+				
+				div{
+					background-color:rgba(70,60,60,0.3);
+				}
+				
+				
+				h1{
+					color: white;
+					text-align: center;
+				}
+				
+				
+				/*************************************
+							first exercise
+				**************************************/
+				
 				#spinner {
-				  animation-name: spinner, depth;
+				  animation-name: spinner;
 				  animation-timing-function: linear;
 				  animation-iteration-count: infinite;
 				  animation-duration: 7s;
@@ -19,21 +41,105 @@
 				  }
 				}
 				
-				@keyframes depth {
-				  0% { text-shadow: 0 0 black; }
-				  25% { text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
-				  50% { text-shadow: 0 0 black; }
-				  75% { text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black, -5px 0 black; }
-				  100% { text-shadow: 0 0 black; }
+				/*************************************
+							second exercise
+				**************************************/
+				.hover-exercise:hover{
+					background-color: pink;
 				}
+				
+				/*************************************
+							third exercise
+				**************************************/
+			
+				.radio-input {
+					display: none;
+				}
+
+				.radio-label {
+					border: 2px solid orange;
+					border-radius: 15px;
+					background-color: pink
+				}
+
+				.radio-input:checked + .radio-label {
+					border-color: pink;
+					background-color: white;
+				}
+					
+				/*************************************
+							forth exercise
+				**************************************/
+				.element{
+					ont-size: 24px
+					text-align: center;
+					color: green;
+				}
+				
+				.element:nth-child(4){
+					color: pink;
+				}
+				
+				/*************************************
+							fifth exercise
+				**************************************/
+				.blue-after-list ~ div{
+					background-color: SlateBlue;
+				}
+				
 			</style>
 		</head>
 	
 		<body>
-			<div style="background-color:powderblue;", id="spinner">
+		
+			<div>
 			<hr>
-				<p>----------------------Stop, I'm getting dizzy!----------------------</p>
-				<hr>
+				<h1> Spinning Text </h1>
+				<p id="spinner" style="font-size: 24px; color: orange;">MY NAME IS ELI</p>
+			<hr>
+			</div>
+			
+			<div class=hover-exercise>
+			<hr>
+				<h1> Hover over this section with your mouse, and it will change its color </h1>
+			<hr>
+			</div>
+			
+			<div>
+			<hr>
+				<h1>A radio button that changes color when selected</h1>
+				<form>
+					<input type="radio" id="option1" class="radio-input">
+					<label for="option1" class="radio-label">SELECT ME!!</label>
+				</form>
+			<hr>
+			</div>
+			
+			<div class=blue-after-list>
+			<hr>
+				<h1> a green list where the forth element is pink: </h1>
+				<ul>
+					<li class=element> green </li>
+					<li class=element> green </li>
+					<li class=element> green </li>
+					<li class=element> pink </li>
+					<li class=element> green </li>
+					<li class=element> green </li>
+					<li class=element> green </li>
+				</ul>
+			<hr>
+			</div>
+			
+			<div>
+			<hr>
+				<h1>This div is blue</h1>
+			<hr>
+			</div>
+			
+			<div>
+			<hr>
+				<h1>This div is also blue</h1>
+			<hr>
 			</div>
 		</body>
 	</html>
