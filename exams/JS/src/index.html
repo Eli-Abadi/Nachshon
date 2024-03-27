@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	
+	<head></head>	
+	
+	<body>
+		
+		<button onclick="q1()"> Click me (first question) </button>
+		<p id="q1"> this is the first question. when you click the button the desired text will appear </p>
+		
+		<hr>
+		
+		<button onclick="q2()">Clickme!! (second question)</button>
+		<span>random1</span>
+		<span>random2</span>
+		<span>random1</span>
+		<span>random4</span>
+		
+		<hr>
+		
+		<button onclick="q3([2,3])"> Click me (third question) </button>
+		<p id="q3"> 	this is for the third question. <br>
+						when you click the button this text changes to the correct output on the example [2,3] 
+		</p>
+		
+		<hr>
+		
+		<button onclick="q4(['a' , 'ab', 'c' , 'da'])"> Click me (third question) </button>
+		<p id="q4"> 	this is for the forth question. <br>
+						when you click the button this text changes to the correct output on the example ["a" , "ab", "c" , "da"] 
+		</p>
+		
+		<hr>
+		
+		<button id="myid" onclick="q5('myid1')" > me </button>
+		<button id="myid2" onclick="q5('myid2')" > me </button>
+
+		<hr>
+		
+		<button id="myid" onclick="q6()" > 	question 6 <br>
+											click this to print every second "שלום" to the console 
+		</button>
+		
+		<hr>
+		
+		<p id="bruh"> 	this is for question 13. <br>
+						select a color, and this text will change color to the one selected! 
+		</p>
+		
+		<select onchange="q13(this)">
+		<option value="red">red</option>
+		<option value="green">green</option>
+		<option value="blue">blue</option>
+		</select>
+		
+		<hr>
+		
+		<button onclick="goToGoogle()">	Press this to redirect to "google.com" <br>
+										this is for question 16
+		</button>
+		
+
+	
+		
+		<script src = "./demo.js"></script>				
+	</body>
+</html>
