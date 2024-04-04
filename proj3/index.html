@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-	
+<html>	
+
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/styles.css">
@@ -10,18 +10,22 @@
 					
 		<div id="start">
 			<button id="startGameButton" onclick="initGame()">Start Game</button>
-			not supported
 		</div>
 		
 		<audio>
 			<source src="./static/SpongeBobTrapRemixKrustyKrab.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
 		</audio>
 		
+		<!-- modules and functionalities for the main code -->
+		<script src = "./utils/constants.js"></script>
+		<script src = "./utils/animations.js"></script>
 		<script src = "./utils/Fighter.js"></script>
-		
-		
-		<!-- code for this page -->
-		<script src="./utils/DOMManipulator.js"></script>
+		<script src = "./utils/fighterDomObjectsHandlerByType.js"></script>
+		<script src = "./utils/gameButtonsFunctionality.js"></script>
+		<script src = "./utils/gameLogic.js"></script>
+		<script src = "./utils/initScreen.js"></script>
+		<script src="./utils/main.js"></script>
 						
 	</body>
 </html>
