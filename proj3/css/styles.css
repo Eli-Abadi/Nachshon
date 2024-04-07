@@ -1,153 +1,175 @@
-/* ensure this is consistent with 'fadeTime' variable defined in 'constants.js' */
-/* ensure this is consistent with the project's global 'maxNumberOfFighters' variable */
 html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
-body {
-  background-image: url(../static/background.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+
+body{
+	background-image: url(../static/background.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
-#buttonsDiv {
-  display: flex;
-  justify-content: space-around;
+#startGameButton{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 3;
 }
 
-#start {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+#startGameButton:hover{
+	background-color: #483D8B;
+	color: #ADD8E6;
 }
 
-#startGameButton:hover {
-  background-color: #483D8B;
-  color: #ADD8E6;
+#startWarButton{
+	position: fixed;
+    top: 90%;
+    left: 50%;
+	z-index: 3;
 }
 
-#startWarButton:hover {
-  background-color: #483D8B;
-  color: #ADD8E6;
+#startWarButton:hover{
+	background-color: #483D8B;
+	color: #ADD8E6;
 }
 
-#addSpongebobButton {
-  background-color: #FFD700;
-}
-#addSpongebobButton:hover {
-  background-color: #FF8C00;
-  color: #FFD700;
-}
-
-#addPatrickButton {
-  background-color: #E9967A;
-}
-#addPatrickButton:hover {
-  background-color: #9932CC;
-  color: #E9967A;
+#addSpongebobButton{
+	background-color: #FFD700;
+	position: fixed;
+    top: 90%;
+    left: 90%;
+	z-index: 3;
 }
 
-#arena {
-  background-image: url(../static/coloseum.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  left: 0;
-  background-color: rgba(200, 250, 250, 0.6);
-  width: 100%;
-  height: 7.8rem;
+#addSpongebobButton:hover{
+	background-color: #FF8C00;
+	color: #FFD700;
 }
 
-.mainScreenElements {
-  display: flex;
-  flex-direction: column;
+#addPatrickButton{
+	background-color: #E9967A;
+	position: fixed;
+    top: 90%;
+    left: 10%;
+	z-index: 3;
+}
+
+#addPatrickButton:hover{
+	background-color: #FF69B4;
+	color: #9932CC;
+}
+
+#arena{
+	background-image: url(../static/coloseum.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position:absolute;
+	left:0;
+	bottom: 90px;
+    background-color: rgba(200,250,250,0.6);
+    width: 100%; 
+    height: 126px;
+	z-index: 1;
+}
+
+.mainScreenElements{
+	display:flex;
+	justify-content: column;
 }
 
 .bobs-container, .pats-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  max-width: 100%;
-  height: 31.25rem;
+    display: flex;
+	flex-direction: column;
+	position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
 }
+
+
+#fighters-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%; 
+    height: auto;
+}
+
 .bobs-container img, .pats-container img {
   position: relative;
-  width: 6.25rem;
-  height: 6.25rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 100px;
+  height: 100px; 
+  object-fit: cover;
+  z-index: 2;
 }
 
-#fighters-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  max-width: 100%;
-  height: auto;
+.finalScreen{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-.finalScreen {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#fireworks{
+	background-image: url(../static/fireworks.GIF);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+	width: 500px;
+	color: white;
+	font-size: 300%;
 }
 
-#fireworks {
-  background-image: url(../static/fireworks.GIF);
-  background-size: cover;
-  color: white;
-  font-size: 3rem;
-  height: 25rem;
-  width: 30rem;
+
+#bobWinGif{
+  object-fit: cover;
+  height: 500px;
+  width: 500px;
 }
 
-#bobWinGif {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 31.3rem;
-  width: 31.3rem;
-}
-
-#patWinGif {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 25rem;
-  width: 25rem;
+#patWinGif{
+  object-fit: cover;	
+  height: 400px;
+  width: 400px;
 }
 
 .fadeOut {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;  /* ensure this matches 'fadeTime' variable in DOMManipulator */
 }
 
 .fadeIn {
   opacity: 1;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; /* ensure this matches 'fadeTime' variable in DOMManipulator */
 }
 
-.auras {
-  display: flex;
-  justify-content: row;
-  top: 0;
+.auras{
+	display: flex;
+	justify-content: row;
+	z-index: 0;
+	top: 0;
 }
 
-#spaceBetweenAuras {
-  width: 4.3rem;
-  height: 7.8rem;
+#bobAura{
+	z-index: 0;
 }
 
-.fixed {
-  position: fixed;
-}/*# sourceMappingURL=styles.css.map */
+#patAura{
+	z-index: 0;
+}
+
+#spaceBetweenAuras{
+	width: 70px;
+	height:126px;
+}

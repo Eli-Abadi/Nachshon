@@ -1,75 +1,105 @@
-const weak = "Weak";
-const strong = "Strong";
-
-function createNonDOMFighter(type) {
-	const strength = randomizeStrength();
-	const direction = animationDirection(type);
-
-	const res = {
-					kind: type,
-					strength: strength,
-					animationDirection: direction,
-					fought: false
-				};
-	return res;	
-}
-
-
-function randomizeStrength() {
-	const indicator = Math.floor(Math.random() * 2) + 1;
-	if (indicator == 1) {
-		return weak;//weakSpongebob
-	} else {
-		return strong;//strongSpongebob
+class Fighter{
+	
+	
+	constructor(type){
+		if(type == "bob"){
+			this.kind = "bob";
+		} else {
+			this.kind = "pat";
+		}
+		const strength = this.randomizeStrength();
+		this.strength = strength;
+		this.animationDirection = this.animationDirection(type);
+		this.strengthAndKind = this.StrengthAndKindProperty(strength, type);
+		this.fought = false;
 	}
-}
+	
 
-function animationDirection(type) {
-	if (type == bobTypeId) {
-		return -1;
-	} else {
-		return 1;
+	
+	randomizeStrength(){
+		const indicator = Math.floor(Math.random() * 2)+1;
+		if(indicator == 1){
+			return "Weak";//weakSpongebob
+		} else {
+			return "Strong";//strongSpongebob
+		}
 	}
-}
-
-function getPath(fighter) {
-	let res;
-	if (fighter.strength === weak && fighter.kind === bobTypeId) {
-		res = "./static/weakSpongebob.png";
+		
+	animationDirection(type){
+		if(type == "bob"){
+			return -1;
+		} else{
+			return 1;
+		}
 	}
-
-	if (fighter.strength === strong && fighter.kind === bobTypeId) {
-		res =  "./static/mascularSpongebob.png";
+		
+	StrengthAndKindProperty(strength, type){
+		if(strength == "Strong"){
+			if(type == "bob"){
+				return "StrongBob";
+			} else{
+				return "StrongPat";
+			}
+		} else{
+			if(type == "bob"){
+				return "WeakBob";
+			} else{
+				return "WeakPat";
+			}
+		}
 	}
-
-	if (fighter.strength === weak && fighter.kind === patTypeId) {
-		res =  "./static/weakPatrick.png";
+	
+	getPath(){
+		if(this.strengthAndKind == "WeakBob"){
+			return "./static/weakSpongebob.png";
+		}
+			
+		if(this.strengthAndKind == "StrongBob"){
+			return "./static/mascularSpongebob.png";
+		}
+			
+		if(this.strengthAndKind == "WeakPat"){
+			return "./static/weakPatrick.png";
+		}
+			
+		if(this.strengthAndKind == "StrongPat"){
+			return "./static/mascularPatrick.png";
+		}
 	}
-
-	if (fighter.strength === strong && fighter.kind === patTypeId) {
-		res =  "./static/mascularPatrick.png";
+	
+	
+	fight(other){
+		let scoreThis = -1;
+		let scoreOther = -1;
+		
+		if(this.isWeak(this)){
+			scoreThis = 0;
+		} else{
+			scoreThis = 1;
+		}
+		
+		if(this.isWeak(other)){
+			scoreOther = 0;
+		} else{
+			scoreOther = 1;
+		}
+		
+		if(scoreThis>scoreOther){
+			return this.kind;
+		} else if (scoreThis == scoreOther){
+			return "tie";
+		} else{
+			return other.kind;
+		}
+		
+		
 	}
-
-	return res;
-}
-
-
-function fight(f1,f2) {
-	let score1 = isWeak(f1) ? 0 : 1;
-	let score2 = isWeak(f2) ? 0 : 1;
-
-	const res = (score1 > score2) ? f1.kind : ((score1 === score2) ? tieId : f2.kind);
-	return res;
-}
-
-function isWeak(fighter) {
-	if (fighter.strength === weak) {
-		return true;
-	} else {
-		return false;
+	
+	isWeak(fighter){
+			if(fighter.strength == "Weak"){
+				return true;
+			} else{
+				return false;
+			}
 	}
-}
-
-function setFoughtTrueNonDomRepFighter(fighter){
-	fighter.fought = true;
 }
