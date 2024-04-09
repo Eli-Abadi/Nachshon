@@ -4,17 +4,18 @@
 
 CREATE TABLE IF NOT EXISTS public.posts
 (
-    "postID" integer NOT NULL DEFAULT nextval('"posts_postID_seq"'::regclass),
-    "userID" integer NOT NULL,
+    "post_ID" integer NOT NULL DEFAULT nextval('"posts_postID_seq"'::regclass),
+    "user_ID" integer NOT NULL,
     content text COLLATE pg_catalog."default" NOT NULL,
-    title text COLLATE pg_catalog."default",
-    "creationDate" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "lastUpdateDate" timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT posts_pkey PRIMARY KEY ("postID"),
-    CONSTRAINT "userID" FOREIGN KEY ("userID")
-        REFERENCES public."user" ("userID") MATCH SIMPLE
+    title text COLLATE pg_catalog."default" NOT NULL,
+    creation_date timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    last_update_date timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT posts_pkey PRIMARY KEY ("post_ID"),
+    CONSTRAINT "user_ID" FOREIGN KEY ("user_ID")
+        REFERENCES public.users ("user_ID") MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE
+        NOT VALID
 )
 
 TABLESPACE pg_default;

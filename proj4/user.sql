@@ -1,15 +1,15 @@
--- Table: public.user
+-- Table: public.users
 
--- DROP TABLE IF EXISTS public."user";
+-- DROP TABLE IF EXISTS public.users;
 
-CREATE TABLE IF NOT EXISTS public."user"
+CREATE TABLE IF NOT EXISTS public.users
 (
-    "userName" "char"[] NOT NULL,
-    "userID" bigint NOT NULL DEFAULT nextval('"user_userID_seq"'::regclass),
-    CONSTRAINT "userID" PRIMARY KEY ("userID")
+    user_name character varying(1000) COLLATE pg_catalog."default" NOT NULL,
+    "user_ID" integer NOT NULL DEFAULT nextval('"users_user_ID_seq"'::regclass),
+    CONSTRAINT users_pkey PRIMARY KEY ("user_ID")
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."user"
+ALTER TABLE IF EXISTS public.users
     OWNER to postgres;

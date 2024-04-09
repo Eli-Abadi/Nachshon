@@ -1,23 +1,25 @@
--- Table: public.categorisedPost
+-- Table: public.categorised_posts
 
--- DROP TABLE IF EXISTS public."categorisedPost";
+-- DROP TABLE IF EXISTS public.categorised_posts;
 
-CREATE TABLE IF NOT EXISTS public."categorisedPost"
+CREATE TABLE IF NOT EXISTS public.categorised_posts
 (
-    "postID" integer NOT NULL,
-    "categoryID" integer NOT NULL,
-    CONSTRAINT "postIDCategoryID" PRIMARY KEY ("postID", "categoryID"),
-    CONSTRAINT "categoryID" FOREIGN KEY ("categoryID")
-        REFERENCES public.categories ("categoryID") MATCH SIMPLE
+    "post_ID" integer NOT NULL,
+    "category_ID" integer NOT NULL,
+    CONSTRAINT categorised_posts_pkey PRIMARY KEY ("post_ID", "category_ID"),
+    CONSTRAINT "caegory_ID" FOREIGN KEY ("category_ID")
+        REFERENCES public.categories ("category_ID") MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE,
-    CONSTRAINT "postID" FOREIGN KEY ("postID")
-        REFERENCES public.posts ("postID") MATCH SIMPLE
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "post_ID" FOREIGN KEY ("post_ID")
+        REFERENCES public.posts ("post_ID") MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE
+        NOT VALID
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."categorisedPost"
+ALTER TABLE IF EXISTS public.categorised_posts
     OWNER to postgres;
